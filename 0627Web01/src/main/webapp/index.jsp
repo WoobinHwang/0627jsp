@@ -9,5 +9,12 @@
 <body>
 	<div>hello world</div>
 	<div>안녕 인간</div>
+	<%= new java.util.Date() %>
+	<br>
+	<% for(int i=0; i<10; i++){
+		out.println(i);
+	}
+	%>
+	
 </body>
 </html>
