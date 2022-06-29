@@ -18,10 +18,26 @@
 <body>
 
 <%
+	// 현재 로그인이 되어있는 사람은 이미 로그인이 되어있다고 알림
+	String userID = null;
+	if(session.getAttribute("userID") != null){
+		userID = (String)session.getAttribute("userID");
+	}
+	if(userID != null){
+		PrintWriter script = response.getWriter();
+		script.println("<script>");
+		script.println("alert('이미 로그인이 되어있습니다..')");
+		script.println("location.href='index.jsp'");
+		script.println("</script>");
+		
+	}
+
+
 	UserDAO userDAO = new UserDAO();
 	int result = userDAO.login(user.getUserID(), user.getUserPassword());
 	//로그인함수 실행 결과값에 따라서 화면으로 뿌려줄 스크립트 생성
 	if(result==1){	//로그인 성공시
+		session.setAttribute("userID", user.getUserID());
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
 		script.println("alert('환영합니다.')");

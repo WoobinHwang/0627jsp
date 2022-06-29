@@ -20,7 +20,20 @@
 <body>
 
 <%
-	
+//현재 로그인이 되어있는 사람은 회원가입 페이지에 접근 할 수 없도록
+	String userID = null;
+	if(session.getAttribute("userID") != null){
+		userID = (String)session.getAttribute("userID");
+	}
+	if(userID != null){
+		PrintWriter script = response.getWriter();
+		script.println("<script>");
+		script.println("alert('이미 로그인이 되어있습니다..')");
+		script.println("location.href='index.jsp'");
+		script.println("</script>");
+		
+	}	
+
 	//회원가입함수 실행 결과값에 따라서 화면으로 뿌려줄 스크립트 생성
 	//백엔드에서 유효성검사
 	if(user.getUserID()==null || user.getUserPassword()==null || user.getUserName()==null || user.getUserGender()==null){
