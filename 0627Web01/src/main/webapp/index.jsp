@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%-- <div>hello world</div>
+<%-- 	<div>hello world</div>
 	<div>안녕 인간</div>
 	<%= new java.util.Date() %>
 	<br>
@@ -15,13 +15,14 @@
 		out.println(i);
 		System.out.println("헬로!");
 %>
+<%= i %>
 <br>
 <%
 	}
-%>
-	 div*6
-	 --%>
+%> --%>
+	
 	 
 	 <a href="signup.jsp">로그인</a>
+	 <a href="join.jsp">회원가입</a>
 </body>
 </html>
